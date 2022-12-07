@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>TADS DSW - Projeto semestral</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="style/styleCss.css"/>-->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    </head>
+    <div class="container-fluid bg-white p-2">
+        <div class="col-5">
+            <body>
+                <h1>Cadastrar novas músicas:</h1>
+            <body>
+                <form class="form" action="/salvarMusica" th:object="${musica}" method="POST">
+
+
+
+                    <div class="container-fluid bg-white p-2">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('titulo')}">
+                            <label class="validation-message" th:errors="*{titulo}"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input class="form-control" th:field="*{titulo}"type="text" name="titulo" id="titulo" placeholder="Preencha o título da música">
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="container-fluid bg-white p-2">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('artista')}">
+                            <label class="validation-message" th:errors="*{artista}"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="artista">Artista:</label>
+                            <input class="form-control" th:field="*{artista}"type="text" name="artista" id="artista" placeholder="Preencha o nome do artista">
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="container-fluid bg-white p-2">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('anoLancamento')}">
+                            <label class="validation-message" th:errors="*{anoLancamento}"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="anoLancamento">Ano de Lançamento:</label>
+                            <input class="form-control" th:field="*{anoLancamento}"type="text" name="anoLancamento" id="anoLancamento" placeholder="Preencha o ano de lançamento da música">
+
+                        </div>
+                    </div>
+
+                    <div class="container-fluid bg-white p-2">
+
+                        <button type="submit" class="btn btn-outline-success">Cadastrar</button> 
+                </form>
+
+        </div> 
+        <div class="container-fluid bg-white p-2">
+            <a th:href="@{/listaMusicas}"><button type="button" class="btn btn-outline-danger">Voltar</button></a></div>
+
+
+
+
+
+
+
+        <script src="js/jquery-3.4.1.slim.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>
